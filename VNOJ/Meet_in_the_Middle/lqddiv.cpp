@@ -31,7 +31,7 @@ vector<lli> Generate(vector<int> vec) {
         if (vecSum[i] != ret[ret.size() - 1].first)
             ret.push_back(lli(vecSum[i], 1));
         else    
-            ret[ret.size() - 1].second++;
+            ret.rbegin()->second++;
     }
     return ret;
 }
