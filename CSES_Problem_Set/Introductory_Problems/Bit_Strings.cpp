@@ -1,5 +1,4 @@
-/* @Copyright by: __BruteForce__ */
-
+// Author: __BruteForce__
 #include <bits/stdc++.h>
  
 using namespace std;
