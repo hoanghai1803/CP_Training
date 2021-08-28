@@ -2,9 +2,15 @@
 syntax on                 " Enable highlight syntax 
 set nu                    " Show line number
 set ruler                 " Show cursor position in bottom line
+set cursorline            " Highlight cursor line
 set title                 " Set the window’s title
 set mouse=a               " Enable mouse
 set showmatch             " Highlight matching [{()}]
+
+" Theme
+let g:onedark_terminal_italics=1
+let g:onedark_termcolors=256
+colorscheme onedark       " Set colorscheme to onedark.vim
 
 " Setting for tab 
 set tabstop=4             " Set tab width to 4 columns 
