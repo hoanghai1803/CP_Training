@@ -7,7 +7,8 @@ set title                 " Set the window’s title
 set mouse=a               " Enable mouse
 set showmatch             " Highlight matching [{()}]
 
-" Theme
+" Theme config
+" Need to install vim-polyglot to improve syntax highlight
 let g:onedark_terminal_italics=1
 let g:onedark_termcolors=256
 colorscheme onedark       " Set colorscheme to onedark.vim
