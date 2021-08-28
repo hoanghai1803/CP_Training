@@ -1,6 +1,6 @@
 " User Interface
 syntax on                 " Enable highlight syntax 
-set nu			          " Show line number
+set nu                    " Show line number
 set ruler                 " Show cursor position in bottom line
 set title                 " Set the window’s title
 set mouse=a               " Enable mouse
