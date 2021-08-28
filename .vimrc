@@ -7,8 +7,7 @@ set title                 " Set the window’s title
 set mouse=a               " Enable mouse
 set showmatch             " Highlight matching [{()}]
 
-" Theme config
-" Need to install vim-polyglot to improve syntax highlight
+" Theme
 let g:onedark_terminal_italics=1
 let g:onedark_termcolors=256
 colorscheme onedark       " Set colorscheme to onedark.vim
@@ -44,6 +43,15 @@ if has('title') && (has('gui_running') || &title)
     set titlestring+=\ -\ %{v:progname}
     set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}
 endif
+
+" Auto closing brackets
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 
 " Map keys 
 :vmap <C-C> "+y	
