@@ -4,47 +4,39 @@
 using namespace std;
 
 typedef pair<int, int> ii;
-
 #define X first
 #define Y second
 
-#define MAX_N 33
-
-int n;
-ii vec[MAX_N];
 int U, V;
-bool Choose[MAX_N];
 map<ii, int> cnt;
-int res;
+int res = 0;
 
-void BruteForce(int id, int i, int f) {
-    if (i > f) {
+void BruteForce(int id, vector<ii> vec) {
+    int __size = vec.size();
+
+    for (int i = 0; i < (1 << __size); i++) {
         int u = 0, v = 0;
-        for (int i = 1; i <= f; i++) 
-            if (Choose[i])
-                u += vec[i].X, v += vec[i].Y;
-        if (id == 1) 
+        for (int j = 0; j < __size; j++) 
+            if ((i >> j) & 1) 
+                u += vec[j].X, v += vec[j].Y;
+        if (id == 1)
             cnt[ii(u, v)]++;
-        else 
+        else    
             res += cnt[ii(U - u, V - v)];
-        return;
     }
-
-    BruteForce(id, i + 1, f);
-    Choose[i] = true;
-    BruteForce(id, i + 1, f);
-    Choose[i] = false;
 }
 
 int main() {
     cin.tie(0)->sync_with_stdio(false);
 
+    int n;
     cin >> n;
-    for (int i = 1; i <= n; i++)
-        cin >> vec[i].X >> vec[i].Y;
+    vector<ii> a(n / 2), b(n - n / 2);
+    for (ii& v: a) cin >> v.X >> v.Y;
+    for (ii& v: b) cin >> v.X >> v.Y;
     cin >> U >> V;
     
-    BruteForce(1, 1, n / 2);
-    BruteForce(2, n / 2 + 1, n);
+    BruteForce(1, a);
+    BruteForce(2, b);
     cout << res << "\n";
 }
