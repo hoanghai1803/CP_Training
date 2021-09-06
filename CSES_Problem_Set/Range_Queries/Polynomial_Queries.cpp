@@ -13,10 +13,10 @@ struct Node {
 } Nodes[4 * MAX_N];
  
 long long Build(int id, int L, int R) {
-  if (L == R) 
-    return (Nodes[id].sum = arr[L]);
-  int M = (L + R) >> 1;
-  return (Nodes[id].sum = Build(id * 2, L, M) + Build(id * 2 + 1, M + 1, R));
+    if (L == R) 
+        return (Nodes[id].sum = arr[L]);
+    int M = (L + R) >> 1;
+    return (Nodes[id].sum = Build(id * 2, L, M) + Build(id * 2 + 1, M + 1, R));
 }
  
 void Propagation(int id, int L, int R) {
