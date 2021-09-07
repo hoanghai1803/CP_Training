@@ -9,7 +9,6 @@ using namespace std;
 int n, q;
 int a[MAX_N], M[MAX_N][LOG_N];
 
-
 int main() {
     cin.tie(0)->sync_with_stdio(false);
     
