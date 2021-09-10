@@ -78,7 +78,7 @@ int main() {
 
         // Print out result
         for (int i = 0; i < e.size(); i++)
-            if (taken[i]) cout << i + 1 << " "; // i + 1 because vector e and taken index from 0
+            if (taken[i]) cout << i + 1 << " "; // (i + 1) because vector "e" and "taken" are index from 0
         cout << "\n";       
     }
 }
