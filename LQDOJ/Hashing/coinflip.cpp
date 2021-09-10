@@ -40,8 +40,8 @@ int main() {
 
     for (int msk = 0; msk < (1 << m); msk++) {
         if (msk) {
-                int idx = __builtin_ctz(msk); // Count of trailing zero
-                sumXor[msk] = sumXor[msk ^ (1 << idx)] ^ btn[idx + 1];
+            int idx = __builtin_ctz(msk); // Count of trailing zero
+            sumXor[msk] = sumXor[msk ^ (1 << idx)] ^ btn[idx + 1];
         }
         if (sumXor[msk] == target) {
             cout << __builtin_popcount(msk) << "\n";
