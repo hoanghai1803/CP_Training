@@ -88,17 +88,12 @@ void Subtask_5() {
 
 int main() {
     cin.tie(0)->sync_with_stdio(false);
+    
     cin >> L >> n;
-
-    if (L > MAX_L) {
+    if (L > MAX_L) 
         Subtask_1();
-        return 0;
-    }
-
-    if (n > MAX_N) {
+    else if (n > MAX_N) 
         Subtask_2();
-        return 0;
-    }
-
-    Subtask_5();
+    else 
+        Subtask_5();
 }
