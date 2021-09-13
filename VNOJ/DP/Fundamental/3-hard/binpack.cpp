@@ -60,7 +60,7 @@ void Subtask_5() {
         for (int j = 0; j <= L; j++) dp[i][j] = INF;
 
     // At the beginning, we always open 2 boxes to use. If at the end of task, 
-    // one of them has never be used, we will not count it in the result.
+    // one of them has never been used, we will not count it in the result.
     dp[1][w[1]] = ii(2, 0); // Put the first item in the first box
     dp[1][0] = ii(2, w[1]); // Put the first item in the second box
 
@@ -86,8 +86,8 @@ void Subtask_5() {
 
     int res = +oo;
     for (int i = 0; i <= L; i++) {
-        // The case that only 2 boxes are opened at the beginning (no more boxes are opened)
-        // and one of them has never be used, then the result is 1.
+        // The case that only 2 boxes are opened (at the beginning) and no more boxes 
+        // are opened, and one of them has never been used, then the result is 1.
         if ((dp[n][i].first == 2) && (!i || !dp[n][i].second)) {
             res = 1;
             break;
