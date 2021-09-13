@@ -19,7 +19,7 @@ void Subtask_1() {
     int res = +oo;
     for (int msk = 0; msk < (1 << n); msk++) {
         int box[] = {0, 0};
-        int cnt = 2;
+        int cnt = 0;
         for (int i = 0; i < n; i++) {
             int j = (msk >> i) & 1;
             if (box[j] + w[i] > L)
@@ -27,7 +27,7 @@ void Subtask_1() {
             else
                 box[j] += w[i];
         }
-        res = min(res, cnt);
+        res = min(res, cnt + (box[0] > 0) + (box[1] > 0));
     }
     cout << res << "\n";
 }
@@ -58,6 +58,9 @@ void Subtask_5() {
     // Init DP
     for (int i = 1; i <= n; i++)   
         for (int j = 0; j <= L; j++) dp[i][j] = INF;
+
+    // At the beginning, we always open 2 boxes to use. If at the end of task, 
+    // one of them has never be used, we will not count it in the result.
     dp[1][w[1]] = ii(2, 0); // Put the first item in the first box
     dp[1][0] = ii(2, w[1]); // Put the first item in the second box
 
@@ -82,7 +85,15 @@ void Subtask_5() {
         }
 
     int res = +oo;
-    for (int i = 1; i <= L; i++) Minimize(res, dp[n][i].first);
+    for (int i = 0; i <= L; i++) {
+        // The case that only 2 boxes are opened at the beginning (no more boxes are opened)
+        // and one of them has never be used, then the result is 1.
+        if ((dp[n][i].first == 2) && (!i || !dp[n][i].second)) {
+            res = 1;
+            break;
+        }
+        Minimize(res, dp[n][i].first);
+    }
     cout << res << "\n";
 }
 
@@ -90,6 +101,7 @@ int main() {
     cin.tie(0)->sync_with_stdio(false);
     
     cin >> L >> n;
+
     if (L > MAX_L) 
         Subtask_1();
     else if (n > MAX_N) 
