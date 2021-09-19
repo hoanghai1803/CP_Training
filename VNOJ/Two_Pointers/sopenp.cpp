@@ -1,9 +1,10 @@
+// Author: __BruteForce__
 #include <bits/stdc++.h>
 
 using namespace std;
 
 long long Calc(vector<int> vec, int n, int U) {
-    map<int, int> mark;
+    unordered_map<int, int> mark;
     int cnt = 0;
     long long ret = 0;
 
