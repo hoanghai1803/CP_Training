@@ -10,7 +10,7 @@ int main() {
 
     cin >> n;
 	for (int i = 0; i < n; i++) {
-        cin >> a >> b >> c;
+		cin >> a >> b >> c;
 		int dp_0 = max(dp[1] + a, dp[2] + a);
 		int dp_1 = max(dp[0] + b, dp[2] + b);
 		int dp_2 = max(dp[0] + c, dp[1] + c);

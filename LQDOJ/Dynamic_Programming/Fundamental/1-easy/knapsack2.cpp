@@ -15,13 +15,11 @@ int main() {
     cin.tie(0)->sync_with_stdio(false);
 
 	// Input data
-    cin >> N >> W;
-	for (int i = 0; i < N; i++)
-        cin >> w[i] >> v[i];
+	cin >> N >> W;
+	for (int i = 0; i < N; i++) cin >> w[i] >> v[i];
 
 	// DP base
-	for (int _v = 0; _v < MAX_V; _v++)
-		dp[_v] = +oo;
+	for (int _v = 0; _v < MAX_V; _v++) dp[_v] = +oo;
 	dp[0] = 0, dp[v[0]] = w[0];
 
 	// DP sol
@@ -33,7 +31,7 @@ int main() {
 	// Print result
 	for (int _v = MAX_V - 1; _v >= 0; _v--)
 		if (dp[_v] != +oo) {
-            cout << _v << "\n";
+			cout << _v << "\n";
 			return 0;
 		}
 }

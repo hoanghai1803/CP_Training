@@ -16,13 +16,11 @@ int main() {
 
 	// Input data
     cin >> N >> W;
-	for (int i = 0; i < N; i++)
-        cin >> w[i] >> v[i];
+	for (int i = 0; i < N; i++) cin >> w[i] >> v[i];
 
 	// DP base
 	for (int i = 0; i < N; i++)
-		for (int j = 0; j < N; j++)
-			dp[i][j] = -oo;
+		for (int j = 0; j < N; j++) dp[i][j] = -oo;
 	dp[0][0] = 0, dp[0][w[0]] = v[0];
 
 	// DP sol
@@ -30,11 +28,11 @@ int main() {
 		for (int j = 0; j <= W; j++) {
 			dp[i][j] = dp[i - 1][j];
 			if (j - w[i] >= 0)
-				dp[i][j] = max(dp[i][j], dp[i - 1][j - w[i]] + v[i]);
+			dp[i][j] = max(dp[i][j], dp[i - 1][j - w[i]] + v[i]);
 		}
 
 	// Print out result
 	long long res = -oo;
 	for (int j = 0; j <= W; j++) res = max(res, dp[N - 1][j]);
-    cout << res << "\n";
+	cout << res << "\n";
 }

@@ -18,7 +18,7 @@ int main() {
 	for (int i = 1; i < n; i++) {
 		dp[i] = +oo;
 		for (int j = max(i - k, 0); j < i; j++) 
-			dp[i] = min(dp[i], dp[j] + abs(h[i] - h[j])); 
+		dp[i] = min(dp[i], dp[j] + abs(h[i] - h[j])); 
 	}
-    cout << dp[n - 1] << "\n";
+	cout << dp[n - 1] << "\n";
 }
