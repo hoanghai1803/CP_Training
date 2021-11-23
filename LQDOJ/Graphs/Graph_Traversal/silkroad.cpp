@@ -25,7 +25,7 @@ int main() {
     cin.tie(0)->sync_with_stdio(false);
 
     for (cin >> n >> m; m--;) {
-        int u, v, w;
+        int u, v, w; 
         cin >> u >> v >> w;
         edges.push_back({w, {u, v}});
     }
