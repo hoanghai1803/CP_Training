@@ -11,14 +11,11 @@ int main() {
     cin.tie(0)->sync_with_stdio(false);
 
     prefCount[1] = prefSum[1] = 1;
-    for (int i = 2; i < MAX_N; i++)
-        prefCount[i] = 2, prefSum[i] = i + 1;
-    
     for (int i = 2; i < MAX_N; i++) {
+        prefCount[i] += prefCount[i - 1] + 2;
+        prefSum[i] += prefSum[i - 1] + 1 + i;
         for (int j = i + i; j < MAX_N; j += i)
             prefCount[j]++, prefSum[j] += i;
-        prefCount[i] += prefCount[i - 1];
-        prefSum[i] += prefSum[i - 1];
     }
 
     int t, x, y;
