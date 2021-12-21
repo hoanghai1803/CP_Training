@@ -16,6 +16,8 @@ int main() {
     vector<int64> dp(n + 1);
     priority_queue<pair<int64, int>> Heap; // MAX HEAP
 
+    // We can also solve this problem by using segment tree
+    // to find the maximum value in the segment [max(1, i - k), i - 1]
     for (int i = 1; i <= n; i++) {
         int val;
         cin >> val;
