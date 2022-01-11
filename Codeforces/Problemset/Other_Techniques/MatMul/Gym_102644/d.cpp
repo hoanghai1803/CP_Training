@@ -37,15 +37,13 @@ int main() {
 
     int n, m, k;
     cin >> n >> m >> k;
-    vector<int> deg_out(n + 1);
     Matrix First, Base;
 
     for (int u, v; m--;) {
         cin >> u >> v;
-        deg_out[u]++;
         Base.val[v][u] = 1;
     }
-    for (int u = 1; u <= n; u++) First.val[0][u] = (deg_out[u] > 0);
+    for (int u = 1; u <= n; u++) First.val[0][u] = 1;
 
     Matrix temp = First * (Base ^ k);
     int res = 0;
