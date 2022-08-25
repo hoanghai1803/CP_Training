@@ -58,7 +58,7 @@ struct Query {
     }
 };
 
-// Convert a character to the corresponding matrix index
+// Convert a character to a corresponding matrix index
 int get_idx(char ch) {
     if ('0' <= ch && ch <= '9') {
         return ch - '0';
