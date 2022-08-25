@@ -9,7 +9,7 @@ typedef long long int64;
 
 int T, n, k;
 int64 b;
-int fibo[MAX_N], pos[MAX_N];
+int fib[MAX_N], pos[MAX_N];
 
 struct Matrix {
     int val[2][2];
@@ -46,13 +46,13 @@ int main() {
         cin >> n >> b >> k;
 
         Matrix f = First * (Base ^ (b - 1));
-        fibo[1] = f.val[0][0], fibo[2] = f.val[0][1];
-        for (int i = 3; i <= n; i++) fibo[i] = (fibo[i - 1] + fibo[i - 2]) % k;
+        fib[1] = f.val[0][0], fib[2] = f.val[0][1];
+        for (int i = 3; i <= n; i++) fib[i] = (fib[i - 1] + fib[i - 2]) % k;
 
         int sum = 0;
         memset(pos, -1, sizeof(pos));
         for (int i = 1; i <= n; i++) {
-            sum = (sum + fibo[i]) % k;
+            sum = (sum + fib[i]) % k;
             if (pos[sum] != -1) {
                 cout << i - pos[sum] << " ";
                 for (int j = pos[sum] + 1; j <= i; j++) cout << j + b - 1 << " ";
