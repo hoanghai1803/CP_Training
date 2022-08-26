@@ -89,7 +89,7 @@ int main() {
         Base.val[idx1][idx2] = Base.val[idx2][idx1] = 0;
     }
 
-    // Pre-compute Pow array
+    // Pre-compute Pow array: Pow[i] = (Base^2)^i
     Pow[0] = Base;
     for (int i = 1; i < LOG; i++)
         Pow[i] = Pow[i - 1] * Pow[i - 1];
