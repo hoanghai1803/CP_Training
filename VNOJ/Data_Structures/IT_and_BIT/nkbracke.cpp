@@ -12,15 +12,13 @@ struct Node {
 
 void propagate(int id, int L, int R) {
     int& t = st[id].lazy;
-    if (!t) return;
-
     int M = L + R >> 1;
     int l_node = id << 1, r_node = id << 1 | 1;
+
     if (L == M) st[l_node].sum += t;
     st[l_node].min += t, st[l_node].lazy += t;
     if (M + 1 == R) st[r_node].sum += t;
     st[r_node].min += t, st[r_node].lazy += t;
-
     t = 0;
 }
 
